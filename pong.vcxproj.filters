@@ -18,12 +18,12 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="frame_rate.cpp">
+    <ClCompile Include="FrameRate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="frame_rate.hpp">
+    <ClInclude Include="FrameRate.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

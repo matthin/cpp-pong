@@ -1,4 +1,4 @@
-class frame_rate {
+class FrameRate {
 private:
 	sf::Text configure_fps(int fps);
 public:

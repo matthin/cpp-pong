@@ -1,10 +1,10 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
-#include "frame_rate.hpp"
+#include "FrameRate.hpp"
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(600, 600), "Taylor, you are a bitch!");
+    sf::RenderWindow window(sf::VideoMode(600, 600), "Pyrohail - Pong Remake");
     sf::RectangleShape rectangle;
 	rectangle.setSize(sf::Vector2f(600, 600));
     rectangle.setFillColor(sf::Color::Green);
@@ -12,7 +12,7 @@ int main()
 	window.setVerticalSyncEnabled(true);
 	window.setFramerateLimit(60);
 
-	frame_rate fps;
+	FrameRate fps;
 
     while (window.isOpen()) {
         sf::Event event;

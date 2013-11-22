@@ -2,9 +2,9 @@
 #include <SFML/System.hpp>
 #include <string>
 #include <sstream>
-#include "frame_rate.hpp"
+#include "FrameRate.hpp"
 
-sf::Text frame_rate::get() {
+sf::Text FrameRate::get() {
 	static sf::Clock clock;
 	static int fps;
 	static sf::Text text_fps;
@@ -15,14 +15,14 @@ sf::Text frame_rate::get() {
 	if (clock.getElapsedTime().asSeconds() >= 1.f) {
 		fps = fps_incrementor;
 		fps_incrementor = 0;
-		text_fps = frame_rate::configure_fps(fps);
+		text_fps = FrameRate::configure_fps(fps);
 		clock.restart();
 	}
 
 	return text_fps;
 }
 
-sf::Text frame_rate::configure_fps(int fps) {
+sf::Text FrameRate::configure_fps(int fps) {
 	std::ostringstream convert;
 	static std::string string_fps;
 	static sf::Text text_fps;
