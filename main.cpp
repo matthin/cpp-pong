@@ -5,12 +5,13 @@
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(600, 600), "Pyrohail - Pong Remake");
-    sf::RectangleShape rectangle;
-	rectangle.setSize(sf::Vector2f(600, 600));
-    rectangle.setFillColor(sf::Color::Green);
 
 	window.setVerticalSyncEnabled(true);
 	window.setFramerateLimit(60);
+
+    sf::RectangleShape rectangle;
+	rectangle.setSize(sf::Vector2f(600, 600));
+    rectangle.setFillColor(sf::Color::Green);
 
 	FrameRate fps;
 
@@ -22,9 +23,9 @@ int main()
 			}
 		}
 
-        window.clear();
+        window.clear(sf::Color::Black);
         window.draw(rectangle);
-		window.draw(fps.get());
+		fps.display(window);
         window.display();
     }
 

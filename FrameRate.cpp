@@ -4,7 +4,7 @@
 #include <sstream>
 #include "FrameRate.hpp"
 
-sf::Text FrameRate::get() {
+void FrameRate::display(sf::RenderWindow &window) {
 	static sf::Clock clock;
 	static int fps;
 	static sf::Text text_fps;
@@ -19,7 +19,9 @@ sf::Text FrameRate::get() {
 		clock.restart();
 	}
 
-	return text_fps;
+	window.draw(text_fps);
+
+	return;
 }
 
 sf::Text FrameRate::configure_fps(int fps) {
