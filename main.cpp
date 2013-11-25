@@ -35,19 +35,27 @@ int main()
 
 		// Left paddle
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-			leftPaddle.move(0, -6);
+			if (leftPaddle.getPosition().y > 0) {
+				leftPaddle.move(0, -6);
+			}
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-			leftPaddle.move(0, 6);
+			if (leftPaddle.getPosition().y < 568) {
+				leftPaddle.move(0, 6);
+			}
 		}
 		window.draw(leftPaddle);
 
 		// Right paddle
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-			rightPaddle.move(0, -6);
+			if (rightPaddle.getPosition().y > 0) {
+				rightPaddle.move(0, -6);
+			}
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-			rightPaddle.move(0, 6);
+			if (rightPaddle.getPosition().y < 568) {
+				rightPaddle.move(0, 6);
+			}
 		}
 		window.draw(rightPaddle);
 
