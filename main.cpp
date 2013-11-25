@@ -4,28 +4,54 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(600, 600), "Pyrohail - Pong Remake");
+	sf::ContextSettings settings;
+	settings.antialiasingLevel = 8;
+
+    sf::RenderWindow window(sf::VideoMode(1024, 768), "Pyrohail - Pong Remake", sf::Style::Default, settings);
 
 	window.setVerticalSyncEnabled(true);
 	window.setFramerateLimit(60);
 
-    sf::RectangleShape rectangle;
-	rectangle.setSize(sf::Vector2f(600, 600));
-    rectangle.setFillColor(sf::Color::Green);
+	sf::RectangleShape leftPaddle;
+	leftPaddle.setFillColor(sf::Color(250, 250, 250));
+	leftPaddle.setSize(sf::Vector2f(20, 200));
+	leftPaddle.setPosition(0, 0);
 
-	FrameRate fps;
+	sf::RectangleShape rightPaddle;
+	rightPaddle.setFillColor(sf::Color(250, 250, 250));
+	rightPaddle.setSize(sf::Vector2f(20, 200));
+	rightPaddle.setPosition(1004, 0);
 
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed) {
-                window.close();
+			switch(event.type) {
+			case sf::Event::Closed:
+				window.close();
 			}
 		}
 
-        window.clear(sf::Color::Black);
-        window.draw(rectangle);
-		fps.display(window);
+		window.clear(sf::Color::Black);
+
+		// Left paddle
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+			leftPaddle.move(0, -6);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+			leftPaddle.move(0, 6);
+		}
+		window.draw(leftPaddle);
+
+		// Right paddle
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+			rightPaddle.move(0, -6);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+			rightPaddle.move(0, 6);
+		}
+		window.draw(rightPaddle);
+
+		FrameRate::display(window);
         window.display();
     }
 
