@@ -1,6 +1,6 @@
 class FrameRate {
 private:
-	sf::Text configure_fps(int fps);
+	static sf::Text configure_fps(int fps);
 public:
-	void display(sf::RenderWindow &window);
+	static void display(sf::RenderWindow &window);
 };
