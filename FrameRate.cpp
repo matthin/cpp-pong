@@ -4,7 +4,7 @@
 #include <sstream>
 #include "FrameRate.hpp"
 
-void FrameRate::display(sf::RenderWindow &window) {
+void FrameRate::displayFPS(sf::RenderWindow &window) {
 	static sf::Clock clock;
 	static int fps;
 	static sf::Text text_fps;
@@ -15,7 +15,7 @@ void FrameRate::display(sf::RenderWindow &window) {
 	if (clock.getElapsedTime().asSeconds() >= 1.f) {
 		fps = fps_incrementor;
 		fps_incrementor = 0;
-		text_fps = FrameRate::configure_fps(fps);
+		text_fps = FrameRate::configureFPS(fps);
 		clock.restart();
 	}
 
@@ -24,7 +24,7 @@ void FrameRate::display(sf::RenderWindow &window) {
 	return;
 }
 
-sf::Text FrameRate::configure_fps(int fps) {
+sf::Text FrameRate::configureFPS(int fps) {
 	std::ostringstream convert;
 	static std::string string_fps;
 	static sf::Text text_fps;

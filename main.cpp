@@ -59,7 +59,7 @@ int main()
 		}
 		window.draw(rightPaddle);
 
-		FrameRate::display(window);
+		FrameRate::displayFPS(window);
         window.display();
     }
 
