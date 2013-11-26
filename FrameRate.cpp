@@ -20,8 +20,6 @@ void FrameRate::displayFPS(sf::RenderWindow &window) {
 	}
 
 	window.draw(text_fps);
-
-	return;
 }
 
 sf::Text FrameRate::configureFPS(int fps) {
