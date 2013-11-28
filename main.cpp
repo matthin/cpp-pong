@@ -11,7 +11,7 @@ int main()
 	sf::ContextSettings settings;
 	settings.antialiasingLevel = 8;
 
-    sf::RenderWindow window(sf::VideoMode(1024, 768), "Pyrohail - Pong Remake", sf::Style::Default, settings);
+	sf::RenderWindow window(sf::VideoMode(1024, 768), "Pyrohail - Pong Remake", sf::Style::Default, settings);
 
 	window.setVerticalSyncEnabled(true);
 	window.setFramerateLimit(60);
@@ -41,9 +41,9 @@ int main()
 
 	sf::Vector2<float> ballSpeed(5, 5);
 
-    while (window.isOpen()) {
-        sf::Event event;
-        while (window.pollEvent(event)) {
+	while (window.isOpen()) {
+		sf::Event event;
+		while (window.pollEvent(event)) {
 			switch(event.type) {
 			case sf::Event::Closed:
 				window.close();
@@ -93,8 +93,8 @@ int main()
 		window.draw(rightPaddle);
 
 		FrameRate::displayFPS(window);
-        window.display();
-    }
+		window.display();
+	}
 
-    return 0;
+	return 0;
 }
